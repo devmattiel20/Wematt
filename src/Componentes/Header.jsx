@@ -6,7 +6,7 @@ function Header() {
       <div className="navbar-container">
         {/* Logo */}
         <div className="navbar-logo">
-          <span className="logo-icon">⛅</span>
+          <img src="/src/assets/Logo.png" width="100"  alt="Logo" className="logo-img" />
           <span className="logo-text">Weather Finder</span>
         </div>
 
