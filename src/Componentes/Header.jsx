@@ -7,21 +7,10 @@ function Header() {
         {/* Logo */}
         <div className="navbar-logo">
           <img src="/src/assets/Logo.png" width="100"  alt="Logo" className="logo-img" />
-          <span className="logo-text">Weather Finder</span>
+          <span className="logo-text">Wematt</span>
         </div>
 
-        {/* Navigation Links */}
-        <nav className="nav-menu">
-          <a href="#inicio" className="nav-link active">
-            Inicio
-          </a>
-          <a href="#clima" className="nav-link">
-            Clima
-          </a>
-          <a href="#sobre" className="nav-link">
-            Sobre
-          </a>
-        </nav>
+       
 
         {/* Right side actions */}
         <div className="navbar-actions">
