@@ -1,0 +1,188 @@
+    /* Contenedor principal de la tarjeta */
+.weather-card {
+  width: 100%;
+  max-width: 380px;
+  padding: 2.5rem;
+  border-radius: 24px;
+  background: linear-gradient(135deg, rgba(25, 103, 210, 0.2), rgba(33, 150, 243, 0.2));
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  color: white;
+  text-align: center;
+  transition: all 0.3s ease;
+  animation: cardEntry 0.6s ease-out;
+}
+
+.weather-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 30px 80px rgba(33, 150, 243, 0.4);
+  border-color: rgba(100, 181, 246, 0.4);
+}
+
+@keyframes cardEntry {
+  from {
+    opacity: 0;
+    transform: scale(0.9) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Nombre de la ciudad */
+.weather-card h2 {
+  margin: 0 0 0.5rem 0;
+  font-size: 2.5rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #64b5f6, #ffffff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* País debajo de la ciudad */
+.country {
+  margin: 0 0 1.5rem 0;
+  font-size: 1rem;
+  opacity: 0.75;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+/* Icono principal del clima */
+.weather-icon {
+  font-size: 5.5rem;
+  margin-bottom: 1rem;
+  animation: iconBounce 2s ease-in-out infinite;
+}
+
+@keyframes iconBounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+/* Descripción del clima */
+.weather-description {
+  margin: 0 0 1.5rem 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+  opacity: 0.95;
+  text-transform: capitalize;
+}
+
+/* Temperatura */
+.temperature {
+  margin: 0.5rem 0 2rem 0;
+  font-size: 4.5rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #fff, #64b5f6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Contenedor de información adicional */
+.weather-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Cada dato */
+.weather-details p {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 600;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.weather-details p:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-3px);
+  border-color: rgba(100, 181, 246, 0.3);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .weather-card {
+    max-width: 100%;
+    padding: 2rem;
+  }
+
+  .weather-card h2 {
+    font-size: 2rem;
+  }
+
+  .weather-icon {
+    font-size: 4.5rem;
+  }
+
+  .temperature {
+    font-size: 3.5rem;
+  }
+
+  .weather-details {
+    gap: 1rem;
+  }
+
+  .weather-details p {
+    font-size: 0.95rem;
+    padding: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .weather-card {
+    padding: 1.5rem;
+    border-radius: 16px;
+  }
+
+  .weather-card h2 {
+    font-size: 1.5rem;
+  }
+
+  .country {
+    font-size: 0.85rem;
+  }
+
+  .weather-icon {
+    font-size: 3.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .weather-description {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .temperature {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .weather-details {
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+  }
+
+  .weather-details p {
+    font-size: 0.9rem;
+    padding: 0.6rem;
+  }
+}

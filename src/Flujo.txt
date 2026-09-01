@@ -1,0 +1,15 @@
+App.jsx
+   │
+   │ getWeather()
+   ↓
+weatherApi.js
+   │
+   │ fetch()
+   ↓
+Open-Meteo
+   │
+   ↓
+datos
+   │
+   ↓
+App.jsx

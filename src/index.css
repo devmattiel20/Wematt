@@ -1,0 +1,27 @@
+/* Aplicamos box-sizing a todos los elementos */
+* {
+  box-sizing: border-box;
+}
+
+/* Eliminamos el margen que trae el navegador por defecto */
+body {
+  margin: 0;
+  padding: 0;
+
+  /* Ocupamos toda la altura disponible */
+  min-height: 100vh;
+
+  /* Fondo de nuestra aplicación */
+  background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 50%, #0d47a1 100%);
+  background-attachment: fixed;
+
+  /* Fuente moderna */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #fff;
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
