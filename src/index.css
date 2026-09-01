@@ -1,9 +1,117 @@
+/**
+ * Sistema de Light/Dark Mode con Variables CSS
+ * 
+ * Este archivo define un sistema robusto de temas usando CSS Custom Properties (variables CSS).
+ * 
+ * ¿Cómo funciona?
+ * ===============
+ * 
+ * 1. Definimos dos conjuntos de variables CSS: uno para dark mode y otro para light mode
+ * 2. El atributo data-theme en el HTML determina cuál conjunto se usa
+ * 3. Todo el CSS de la aplicación usa estas variables en lugar de colores hardcodeados
+ * 4. Al cambiar data-theme, todos los colores cambian automáticamente
+ * 
+ * Ventajas:
+ * - Mantenimiento fácil: cambiar un color afecta toda la app automáticamente
+ * - Transiciones suaves: CSS puede animar cambios de variables
+ * - Flexible: agregar nuevos temas es tan fácil como agregar nuevas variables
+ */
+
+/**
+ * DARK MODE - :root[data-theme="dark"]
+ * 
+ * Cuando el HTML tiene data-theme="dark", se usan estas variables.
+ * Se activa automáticamente al cargar la página (por defecto)
+ * 
+ * Colores usados:
+ * - Fondos: Azul oscuro profundo con gradiente
+ * - Textos: Blanco y tonos claros de azul
+ * - Acentos: Azul claro (#64b5f6) para destacar elementos
+ */
+:root[data-theme="dark"] {
+  /* Fondos - Gradientes y colores de fondo */
+  --bg-primary: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 50%, #0d47a1 100%);
+  --bg-secondary: rgba(13, 71, 161, 0.95); /* Navbar, Footer */
+  --bg-tertiary: rgba(255, 255, 255, 0.1); /* Cards internas */
+  --bg-input: rgba(255, 255, 255, 0.1);   /* Input backgrounds */
+  
+  /* Textos - Colores para diferentes niveles de jerarquía */
+  --text-primary: #fff;                    /* Texto principal y títulos */
+  --text-secondary: rgba(255, 255, 255, 0.8); /* Texto secundario */
+  --text-tertiary: rgba(255, 255, 255, 0.6);  /* Texto terciario o deshabilitado */
+  
+  /* Bordes - Colores para bordes y separadores */
+  --border-color: rgba(255, 255, 255, 0.1);     /* Borde normal */
+  --border-color-hover: rgba(100, 181, 246, 0.8); /* Borde en hover */
+  
+  /* Gradientes - Para textos y botones que necesitan efecto */
+  --gradient-primary: linear-gradient(135deg, #64b5f6, #1e88e5);     /* Títulos */
+  --gradient-button: linear-gradient(135deg, #2196f3, #1976d2);      /* Botón normal */
+  --gradient-button-hover: linear-gradient(135deg, #1e88e5, #1565c0); /* Botón hover */
+  
+  /* Acentos - Colores destacados */
+  --accent-color: #64b5f6;  /* Azul claro principal */
+  --accent-light: #90caf9;  /* Azul aún más claro */
+  
+  /* Sombras - Para profundidad visual */
+  --shadow-color: rgba(0, 0, 0, 0.2);
+}
+
+/**
+ * LIGHT MODE - :root[data-theme="light"]
+ * 
+ * Cuando el HTML tiene data-theme="light", se usan estas variables.
+ * Se activa cuando el usuario hace clic en el botón de tema.
+ * 
+ * Colores usados:
+ * - Fondos: Azul muy claro y suave
+ * - Textos: Azul oscuro para contraste
+ * - Acentos: Azul claro y medio (#2196f3)
+ * 
+ * IMPORTANTE: El contraste en light mode es crucial para la legibilidad.
+ * Por eso usamos azules más oscuros para el texto.
+ */
+:root[data-theme="light"] {
+  /* Fondos - Gradientes suaves y claros */
+  --bg-primary: linear-gradient(135deg, #f0f7ff 0%, #e3f2fd 50%, #e1f5fe 100%);
+  --bg-secondary: linear-gradient(90deg, rgba(100, 181, 246, 0.1), rgba(33, 150, 243, 0.1));
+  --bg-tertiary: rgba(33, 150, 243, 0.08);
+  --bg-input: rgba(33, 150, 243, 0.08);
+  
+  /* Textos - Azules oscuros para buen contraste */
+  --text-primary: #0d47a1;      /* Azul muy oscuro */
+  --text-secondary: #1565c0;     /* Azul oscuro */
+  --text-tertiary: #1976d2;      /* Azul medio */
+  
+  /* Bordes - Azules suaves */
+  --border-color: rgba(33, 150, 243, 0.2);   /* Borde normal */
+  --border-color-hover: rgba(33, 150, 243, 0.6); /* Borde en hover */
+  
+  /* Gradientes - Para mantener consistencia visual */
+  --gradient-primary: linear-gradient(135deg, #2196f3, #1976d2);
+  --gradient-button: linear-gradient(135deg, #42a5f5, #2196f3);
+  --gradient-button-hover: linear-gradient(135deg, #2196f3, #1e88e5);
+  
+  /* Acentos - Azul claro pero visible en fondo claro */
+  --accent-color: #2196f3;
+  --accent-light: #64b5f6;
+  
+  /* Sombras - Más sutiles en modo claro */
+  --shadow-color: rgba(13, 71, 161, 0.1);
+}
+
 /* Aplicamos box-sizing a todos los elementos */
 * {
   box-sizing: border-box;
 }
 
-/* Eliminamos el margen que trae el navegador por defecto */
+/**
+ * Body - Estilos globales
+ * 
+ * Usa las variables CSS definidas arriba.
+ * La propiedad "transition" hace que los cambios de color sean suaves
+ * cuando el usuario cambia de tema.
+ */
 body {
   margin: 0;
   padding: 0;
@@ -11,13 +119,16 @@ body {
   /* Ocupamos toda la altura disponible */
   min-height: 100vh;
 
-  /* Fondo de nuestra aplicación */
-  background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 50%, #0d47a1 100%);
-  background-attachment: fixed;
+  /* Usamos la variable --bg-primary que cambia según el tema */
+  background: var(--bg-primary);
+  background-attachment: fixed; /* El gradiente permanece fijo al scrollear */
 
   /* Fuente moderna */
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: #fff;
+  color: var(--text-primary); /* Usa --text-primary (cambia con tema) */
+  
+  /* Transición suave: cuando cambia data-theme, los colores se animan */
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
 #root {

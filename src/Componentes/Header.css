@@ -1,13 +1,29 @@
+/**
+ * Header.css - Navegación y Tema
+ * 
+ * Este archivo usa variables CSS (--bg-secondary, --text-primary, etc.)
+ * definidas en index.css. 
+ * 
+ * Cuando data-theme cambia en HTML:
+ * - Todas estas variables cambian automáticamente
+ * - Los estilos aquí se actualizan sin tocar el CSS
+ */
+
 /* Navbar */
 .navbar {
-  background: linear-gradient(90deg, rgba(13, 71, 161, 0.95), rgba(25, 103, 210, 0.95));
+  /* Usa la variable que cambia según el tema */
+  background: var(--bg-secondary);
+  
   backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+  border-bottom: 1px solid var(--border-color);
+  box-shadow: 0 4px 30px var(--shadow-color);
   position: sticky;
   top: 0;
   z-index: 1000;
   animation: slideDown 0.5s ease-out;
+  
+  /* Cuando data-theme cambia, los colores se animan suavemente */
+  transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 @keyframes slideDown {
@@ -37,9 +53,10 @@
   gap: 0.8rem;
   font-size: 1.5rem;
   font-weight: 800;
-  color: white;
+  /* El color cambia automáticamente con el tema */
+  color: var(--text-primary);
   text-decoration: none;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, color 0.3s ease;
   cursor: pointer;
 }
 
@@ -47,10 +64,6 @@
   transform: scale(1.05);
 }
 
-.logo-icon {
-  font-size: 2rem;
-  animation: float 3s ease-in-out infinite;
-}
 
 @keyframes float {
   0%, 100% {
@@ -61,11 +74,19 @@
   }
 }
 
+/**
+ * Logo Text - Gradiente dinámico
+ * 
+ * --gradient-primary cambiar según el tema:
+ * - Dark: azul claro a azul medio
+ * - Light: azul claro a azul oscuro
+ */
 .logo-text {
-  background: linear-gradient(135deg, #64b5f6, #90caf9);
+  background: var(--gradient-primary);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  transition: background 0.3s ease;
 }
 
 /* Navigation Menu */
@@ -75,8 +96,9 @@
   margin: 0;
 }
 
+/* Enlaces de navegación */
 .nav-link {
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--text-secondary);
   text-decoration: none;
   font-weight: 600;
   font-size: 1rem;
@@ -87,7 +109,7 @@
 
 .nav-link:hover,
 .nav-link.active {
-  color: white;
+  color: var(--text-primary);
 }
 
 .nav-link::after {
@@ -97,7 +119,7 @@
   left: 0;
   width: 0;
   height: 2px;
-  background: linear-gradient(90deg, #64b5f6, #2196f3);
+  background: var(--gradient-primary);
   transition: width 0.3s ease;
 }
 
@@ -113,10 +135,20 @@
   align-items: center;
 }
 
+/**
+ * Botón de cambio de tema
+ * 
+ * Este botón usa variables que cambian con el tema.
+ * Cuando el usuario lo hace clic:
+ * 1. toggleTheme() invierte isDark
+ * 2. data-theme cambia en HTML
+ * 3. Todas las variables CSS cambiarán
+ * 4. Este botón y el resto de la página se actualizan instantáneamente
+ */
 .theme-toggle {
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  color: white;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -129,8 +161,11 @@
 }
 
 .theme-toggle:hover {
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.15);
+  border-color: var(--border-color-hover);
   transform: rotate(20deg) scale(1.1);
+  /* La sombra también usa variable que cambia con el tema */
+  box-shadow: 0 0 20px var(--accent-light);
 }
 
 /* Responsive */

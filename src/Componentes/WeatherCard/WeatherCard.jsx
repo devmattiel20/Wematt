@@ -6,56 +6,56 @@ function getWeatherInfo(code) {
   if (code === 0) {
     return {
       icon: "☀️",
-      description: "Clear sky",
+      description: "Cielo despejado",
     };
   }
 
   if (code >= 1 && code <= 3) {
     return {
       icon: "🌤️",
-      description: "Cloudy",
+      description: "Nublado",
     };
   }
 
   if (code >= 45 && code <= 48) {
     return {
       icon: "🌫️",
-      description: "Fog",
+      description: "Niebla",
     };
   }
 
   if (code >= 51 && code <= 57) {
     return {
       icon: "🌧️",
-      description: "Drizzle",
+      description: "Llovizna",
     };
   }
 
   if (code >= 61 && code <= 67) {
     return {
       icon: "🌧️",
-      description: "Rain",
+      description: "Lluvia",
     };
   }
 
   if (code >= 71 && code <= 77) {
     return {
       icon: "❄️",
-      description: "Snow",
+      description: "Nieve",
     };
   }
 
   if (code >= 80 && code <= 82) {
     return {
       icon: "🌦️",
-      description: "Rain showers",
+      description: "Chubascos",
     };
   }
 
   if (code >= 95 && code <= 99) {
     return {
       icon: "⛈️",
-      description: "Thunderstorm",
+      description: "Tormenta",
     };
   }
 

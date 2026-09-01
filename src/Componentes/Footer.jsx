@@ -15,16 +15,17 @@ function Footer() {
           </p>
         </div>
 
+        <div className="footer-bottom">
+        <p>&copy; {currentYear} MATTHEW BETTIN.</p>
+      </div>
         
       </div>
 
       {/* Línea separadora */}
-      <hr className="footer-divider" />
+  
 
       {/* Información de copyright */}
-      <div className="footer-bottom">
-        <p>&copy; {currentYear} MATTHEW BETTIN.</p>
-      </div>
+      
     </footer>
   );
 }
