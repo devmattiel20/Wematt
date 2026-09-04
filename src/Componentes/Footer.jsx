@@ -6,7 +6,6 @@ function Footer() {
   return (
     <footer className="footer">
       <div className="footer-container">
-        {/* Sección de información */}
         <div className="footer-section">
           <h3>Wematt</h3>
           <p>
@@ -16,16 +15,9 @@ function Footer() {
         </div>
 
         <div className="footer-bottom">
-        <p>&copy; {currentYear} MATTHEW BETTIN.</p>
+          <p>&copy; {currentYear} MATTHEW BETTIN.</p>
+        </div>
       </div>
-        
-      </div>
-
-      {/* Línea separadora */}
-  
-
-      {/* Información de copyright */}
-      
     </footer>
   );
 }

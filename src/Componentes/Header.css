@@ -1,15 +1,4 @@
-/**
- * Header.css - Navegación y Tema
- * 
- * Este archivo usa variables CSS (--bg-secondary, --text-primary, etc.)
- * definidas en index.css. 
- * 
- * Cuando data-theme cambia en HTML:
- * - Todas estas variables cambian automáticamente
- * - Los estilos aquí se actualizan sin tocar el CSS
- */
 
-/* Navbar */
 .navbar {
   /* Usa la variable que cambia según el tema */
   background: var(--bg-secondary);
@@ -73,13 +62,7 @@
   }
 }
 
-/**
- * Logo Text - Gradiente dinámico
- * 
- * --gradient-primary cambiar según el tema:
- * - Dark: azul claro a azul medio
- * - Light: azul claro a azul oscuro
- */
+
 .logo-text {
   background: var(--gradient-primary);
   -webkit-background-clip: text;
@@ -134,16 +117,7 @@
   align-items: center;
 }
 
-/**
- * Botón de cambio de tema
- * 
- * Este botón usa variables que cambian con el tema.
- * Cuando el usuario lo hace clic:
- * 1. toggleTheme() invierte isDark
- * 2. data-theme cambia en HTML
- * 3. Todas las variables CSS cambiarán
- * 4. Este botón y el resto de la página se actualizan instantáneamente
- */
+
 .theme-toggle {
   background: var(--bg-tertiary);
   border: 1px solid var(--border-color);
