@@ -89,6 +89,10 @@ Reemplaza `TU_USUARIO` y `TU_REPOSITORIO` con tus datos de GitHub.
 - CSS
 - Open-Meteo API
 
+## Autor
+
+**Matthew Bettin** - [@devmattiel20](https://github.com/devmattiel20)
+
 ## Licencia
 
-Este proyecto es de uso educativo y personal.
+Este proyecto es de código abierto y está disponible bajo la licencia MIT.
